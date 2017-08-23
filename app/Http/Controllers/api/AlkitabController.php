@@ -11,7 +11,7 @@ class AlkitabController extends Controller
 {
     public function getKitab()
     {
-        $alkitab = Alkitab::groupBy("kitab")->orderBy('id')->get();
+        $alkitab = Alkitab::groupBy("kitab")->select('kitab')->orderBy('id')->get();
         return response()->json($alkitab,200);
     }
 
@@ -22,5 +22,21 @@ class AlkitabController extends Controller
             return $value;
         });
         return response()->json($pasal,200);
+    }
+
+    public function getFirman($kitab,$pasal,$ayat)
+    {
+        $firman = Alkitab::where('kitab',$kitab)
+                            ->where('pasal',$pasal)
+                            ->where('ayat',$ayat)
+                            ->get();
+        if(count($firman) > 0)
+        {
+            return response()->json($firman[0],200);
+        }
+        else
+        {
+            return response()->json('Pasal/Ayat Tidak Ditemukan', 500);
+        }
     }
 }
