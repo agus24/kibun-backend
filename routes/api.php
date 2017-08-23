@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('login','api\UserController@login');
+Route::get('getKitab','api\AlkitabController@getKitab');
+Route::get('getPasalAyat/{kitab}','api\AlkitabController@getPasalAyat');
