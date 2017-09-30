@@ -7,17 +7,17 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest extends TestCase
+class ApiTest extends TestCase
 {
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testGetKitab()
     {
-        $response = $this->get('/');
-
-        $this->assertTrue(true);
+        $response = $this->json("GET","api/getKitab");
+        $data = $response->original;
+        $this->assertTrue($data->count() == 66);
     }
 }

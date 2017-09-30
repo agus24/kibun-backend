@@ -11,7 +11,7 @@ class AlkitabController extends Controller
 {
     public function getKitab()
     {
-        $alkitab = Alkitab::groupBy("kitab")->select('kitab')->orderBy('id')->get();
+        $alkitab = Alkitab::GetKitab();
         return response()->json($alkitab,200);
     }
 
