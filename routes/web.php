@@ -18,3 +18,4 @@ Route::get('/', function () {
 Route::get('/password/{password}' , function($password) {
     return bcrypt($password);
 });
+//Auth::routes();

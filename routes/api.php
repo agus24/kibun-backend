@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: Content-Type, X-Requested-With, X-XSRF-TOKEN, Authorization');
 header('Access-Control-Allow-Methods: GET,PUT,POST,DELETE');
+
 use Illuminate\Http\Request;
 
 /*
