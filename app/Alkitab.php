@@ -18,4 +18,17 @@ class Alkitab extends Model
         });
         return $data;
     }
+
+    public function scopeGetFirman($query,$kitab,$pasal,$ayat)
+    {
+        $data = $query->where('kitab',$kitab)
+                    ->where('pasal',$pasal)
+                    ->where('ayat',$ayat)
+                    ->get();
+        $data = $data->map(function($value,$key){
+            $value->kitab = strtoupper($value->kitab);
+            return $value;
+        });
+        return $data;
+    }
 }

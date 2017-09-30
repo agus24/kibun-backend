@@ -26,10 +26,7 @@ class AlkitabController extends Controller
 
     public function getFirman($kitab,$pasal,$ayat)
     {
-        $firman = Alkitab::where('kitab',$kitab)
-                            ->where('pasal',$pasal)
-                            ->where('ayat',$ayat)
-                            ->get();
+        $firman = Alkitab::GetFirman($kitab,$pasal,$ayat);
         if(count($firman) > 0)
         {
             return response()->json($firman[0],200);
